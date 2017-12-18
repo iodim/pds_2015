@@ -1,0 +1,95 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.944\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=0,
+xmax=7,
+xtick={0,1,2,3,4,5,6,7},
+xticklabels={{$2^{0}$},{$2^{1}$},{$2^{2}$},{$2^{3}$},{$2^{4}$},{$2^{5}$},{$2^{6}$},{$2^{7}$}},
+xlabel={Processors},
+ymin=0,
+ymax=45,
+ytick={0,5,10,15,20,25,30,35,40,45},
+yticklabels={{ 000\%},{ 500\%},{1000\%},{1500\%},{2000\%},{2500\%},{3000\%},{3500\%},{4000\%},{4500\%}},
+ylabel={Percent Speedup},
+axis background/.style={fill=white},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=white!15!black}
+]
+\addplot [color=mycolor1,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.71075423951727\\
+2	3.13993845047\\
+3	6.63151120833613\\
+4	12.219779163755\\
+5	19.2356333538142\\
+6	18.3424536046857\\
+7	22.2665886006853\\
+};
+\addlegendentry{$N_Q = N_C = 2\^{21}$};
+
+\addplot [color=mycolor2,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.57589760541889\\
+2	2.8723720775038\\
+3	7.82496697926662\\
+4	14.3491041424888\\
+5	24.4877427104377\\
+6	23.0751778003114\\
+7	25.0309704876489\\
+};
+\addlegendentry{$N_Q = N_C = 2\^{22}$};
+
+\addplot [color=mycolor3,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.46567401911807\\
+2	2.80014768115599\\
+3	4.91711427121375\\
+4	12.6550478390847\\
+5	21.9812438337496\\
+6	22.0080379821264\\
+7	35.8329730627491\\
+};
+\addlegendentry{$N_Q = N_C = 2\^{23}$};
+
+\addplot [color=mycolor4,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.45187304076645\\
+2	2.72992802621766\\
+3	4.67112181372072\\
+4	12.7003510050096\\
+5	20.8994618610242\\
+6	22.3566321380795\\
+7	20.4867748802008\\
+};
+\addlegendentry{$N_Q = N_C = 2\^{24}$};
+
+\addplot [color=mycolor5,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.32677564741211\\
+2	2.67650308905201\\
+3	5.68980665408101\\
+4	13.9416197201513\\
+5	20.4345026948945\\
+6	24.2370562776479\\
+7	40.3962682171465\\
+};
+\addlegendentry{$N_Q = N_C = 2\^{25}$};
+
+\end{axis}
+\end{tikzpicture}%

@@ -1,0 +1,80 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.944\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=12,
+xmax=16,
+xtick={12,13,14,15,16},
+xticklabels={{$2^{12}$},{$2^{13}$},{$2^{14}$},{$2^{15}$},{$2^{16}$}},
+xlabel={$n\cdot m\cdot k$},
+ymin=0,
+ymax=14,
+ytick={0,2,4,6,8,10,12,14},
+yticklabels={{ 000\%},{ 200\%},{ 400\%},{ 600\%},{ 800\%},{1000\%},{1200\%},{1400\%}},
+ylabel={Percent Speedup},
+axis background/.style={fill=white},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=white!15!black}
+]
+\addplot [color=mycolor1,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.59726369003052\\
+14	2.36614243372672\\
+15	2.54523477233508\\
+16	3.3215912009783\\
+};
+\addlegendentry{$N_Q = N_C = 2^{21}$};
+
+\addplot [color=mycolor2,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.73341569522196\\
+14	2.97030638808769\\
+15	4.02246985141668\\
+16	5.12935186946599\\
+};
+\addlegendentry{$N_Q = N_C = 2^{22}$};
+
+\addplot [color=mycolor3,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.83023777243435\\
+14	3.35968563318169\\
+15	5.06117255452167\\
+16	7.23729706405939\\
+};
+\addlegendentry{$N_Q = N_C = 2^{23}$};
+
+\addplot [color=mycolor4,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.91569203548474\\
+14	3.71663853874054\\
+15	6.1418719188616\\
+16	9.74934296743039\\
+};
+\addlegendentry{$N_Q = N_C = 2^{24}$};
+
+\addplot [color=mycolor5,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.9483288021705\\
+14	3.93037145949039\\
+15	6.91907092098457\\
+16	12.0237215603997\\
+};
+\addlegendentry{$N_Q = N_C = 2^{25}$};
+
+\end{axis}
+\end{tikzpicture}%

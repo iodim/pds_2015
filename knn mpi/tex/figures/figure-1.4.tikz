@@ -1,0 +1,95 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.944\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=0,
+xmax=7,
+xtick={0,1,2,3,4,5,6,7},
+xticklabels={{$2^{0}$},{$2^{1}$},{$2^{2}$},{$2^{3}$},{$2^{4}$},{$2^{5}$},{$2^{6}$},{$2^{7}$}},
+xlabel={Processors},
+ymin=0,
+ymax=40,
+ytick={1,5,10,15,20,25,30,35,40},
+yticklabels={{ 100\%},{ 500\%},{1000\%},{1500\%},{2000\%},{2500\%},{3000\%},{3500\%},{4000\%}},
+ylabel={Percent Speedup},
+axis background/.style={fill=white},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=white!15!black}
+]
+\addplot [color=mycolor1,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.45187304076645\\
+2	2.72992802621766\\
+3	4.67112181372072\\
+4	12.7003510050096\\
+5	20.8994618610242\\
+6	22.3566321380795\\
+7	20.4867748802008\\
+};
+\addlegendentry{$n\cdot m\cdot k = 2^{12}$};
+
+\addplot [color=mycolor2,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.56862348909209\\
+2	2.89006986753321\\
+3	4.86472668696671\\
+4	13.1705325394281\\
+5	20.3748201934151\\
+6	26.2884203606364\\
+7	39.7073749074165\\
+};
+\addlegendentry{$n\cdot m\cdot k = 2^{13}$};
+
+\addplot [color=mycolor3,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.64210748323831\\
+2	3.27641774885431\\
+3	5.56097739087888\\
+4	13.4176292356481\\
+5	21.9435542843554\\
+6	30.862397932999\\
+7	39.5011534441277\\
+};
+\addlegendentry{$n\cdot m\cdot k = 2^{14}$};
+
+\addplot [color=mycolor4,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	1.73984431100796\\
+2	3.32258684334391\\
+3	6.44873880488472\\
+4	13.7513272228923\\
+5	23.9044640248342\\
+6	33.7183063089389\\
+7	36.2643980339332\\
+};
+\addlegendentry{$n\cdot m\cdot k = 2^{15}$};
+
+\addplot [color=mycolor5,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+0	1\\
+1	2.01137947625247\\
+2	3.57560968396143\\
+3	7.07901695977483\\
+4	14.230512669862\\
+5	21.5110504645252\\
+6	33.0760231781845\\
+7	35.1462504945025\\
+};
+\addlegendentry{$n\cdot m\cdot k = 2^{16}$};
+
+\end{axis}
+\end{tikzpicture}%

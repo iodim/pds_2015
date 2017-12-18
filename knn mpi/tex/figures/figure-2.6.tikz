@@ -1,0 +1,80 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.944\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=12,
+xmax=16,
+xtick={12,13,14,15,16},
+xticklabels={{2^{12}},{2^{13}},{2^{14}},{2^{15}},{2^{16}}},
+xlabel={$n\cdot m\cdot k$},
+ymin=0,
+ymax=14,
+ytick={0,2,4,6,8,10,12,14},
+yticklabels={{ 000 %},{ 200 %},{ 400 %},{ 600 %},{ 800 %},{1000 %},{1200 %},{1400 %}},
+ylabel={Percent Speedup},
+axis background/.style={fill=white},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=white!15!black}
+]
+\addplot [color=mycolor1,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.52945699977121\\
+14	1.86812344748048\\
+15	3.4974639945356\\
+16	3.3366324671209\\
+};
+\addlegendentry{$N_Q = N_C = 2^{21}$};
+
+\addplot [color=mycolor2,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.38504307359551\\
+14	2.35149458916327\\
+15	3.13016642225917\\
+16	4.45539958522783\\
+};
+\addlegendentry{$N_Q = N_C = 2^{22}$};
+
+\addplot [color=mycolor3,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.97897895534033\\
+14	3.47761310911861\\
+15	5.37562745918304\\
+16	4.80959881956384\\
+};
+\addlegendentry{$N_Q = N_C = 2^{23}$};
+
+\addplot [color=mycolor4,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	2.12777968730729\\
+14	4.27489585492494\\
+15	7.61088189026711\\
+16	11.0124347333889\\
+};
+\addlegendentry{$N_Q = N_C = 2^{24}$};
+
+\addplot [color=mycolor5,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.89930148471767\\
+14	4.3648578687913\\
+15	8.31354211165052\\
+16	13.1927024056773\\
+};
+\addlegendentry{$N_Q = N_C = 2^{25}$};
+
+\end{axis}
+\end{tikzpicture}%

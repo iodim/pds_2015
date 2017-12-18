@@ -1,0 +1,25 @@
+#!/bin/sh
+#PBS -q auth
+#PBS -N bin/mpi-knn
+#PBS -j oe
+#PBS -l nodes=8:ppn=1
+
+cd $PBS_O_WORKDIR
+export NP=$(cat $PBS_NODEFILE | wc -l)
+
+export I2G_MPI_TYPE=mpich2
+#$I2G_MPI_START
+
+i=21
+while [ $i -lt 26 ]
+do
+  j=12
+  while [ $j -lt 17 ]
+  do
+    export I2G_MPI_APPLICATION_ARGS="$i $i $j 0"
+    export I2G_MPI_APPLICATION=bin/mpi-knn
+    $I2G_MPI_START
+    j=`expr $j + 1`
+  done
+  i=`expr $i + 1`
+done

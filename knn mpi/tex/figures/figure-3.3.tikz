@@ -1,0 +1,80 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.944\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=12,
+xmax=16,
+xtick={12,13,14,15,16},
+xticklabels={{$2^{12}$},{$2^{13}$},{$2^{14}$},{$2^{15}$},{$2^{16}$}},
+xlabel={$n\cdot m\cdot k$},
+ymin=0,
+ymax=12,
+ytick={0,2,4,6,8,10,12},
+yticklabels={{ 000\%},{ 200\%},{ 400\%},{ 600\%},{ 800\%},{1000\%},{1200\%}},
+ylabel={Percent Speedup},
+axis background/.style={fill=white},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=white!15!black}
+]
+\addplot [color=mycolor1,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.20693645062192\\
+14	1.1706244187104\\
+15	2.41140566738343\\
+16	2.8262091621009\\
+};
+\addlegendentry{$N_Q = N_C = 2^{21}$};
+
+\addplot [color=mycolor2,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.48904361499017\\
+14	1.57507699591379\\
+15	2.01085213276861\\
+16	2.15818651416391\\
+};
+\addlegendentry{$N_Q = N_C = 2^{22}$};
+
+\addplot [color=mycolor3,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	2.6133054215729\\
+14	4.28682902712151\\
+15	5.42380983478598\\
+16	8.06873546130534\\
+};
+\addlegendentry{$N_Q = N_C = 2^{23}$};
+
+\addplot [color=mycolor4,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.88454191540272\\
+14	3.68665238221443\\
+15	6.96673362668762\\
+16	11.280496123786\\
+};
+\addlegendentry{$N_Q = N_C = 2^{24}$};
+
+\addplot [color=mycolor5,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.84967254708722\\
+14	3.9979079962339\\
+15	6.21945225051995\\
+16	10.873458675304\\
+};
+\addlegendentry{$N_Q = N_C = 2^{25}$};
+
+\end{axis}
+\end{tikzpicture}%

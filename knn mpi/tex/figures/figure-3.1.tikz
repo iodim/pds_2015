@@ -1,0 +1,80 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.953\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=12,
+xmax=16,
+xtick={12,13,14,15,16},
+xticklabels={{$2^{12}$},{$2^{13}$},{$2^{14}$},{$2^{15}$},{$2^{16}$}},
+xlabel={$n\cdot m\cdot k$},
+ymin=0,
+ymax=12,
+ytick={0,2,4,6,8,10,12},
+yticklabels={{ 100\%},{ 200\%},{ 300\%},{ 400\%},{ 500\%},{ 600\%},{ 700\%},{ 800\%},{ 900\%},{1000\%},{1100\%}},
+ylabel={Percent Speedup},
+axis background/.style={fill=white},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=white!15!black}
+]
+\addplot [color=mycolor1,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.71603460605594\\
+14	2.47974837900813\\
+15	2.74501093854128\\
+16	4.19549492357783\\
+};
+\addlegendentry{$N_Q = N_C = 2^{21}$};
+
+\addplot [color=mycolor2,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.71417014173067\\
+14	2.7997961904347\\
+15	4.26877673831429\\
+16	5.85858798735511\\
+};
+\addlegendentry{$N_Q = N_C = 2^{22}$};
+
+\addplot [color=mycolor3,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.88103470816512\\
+14	3.28762453608171\\
+15	5.29392383398002\\
+16	8.2567417318423\\
+};
+\addlegendentry{$N_Q = N_C = 2^{23}$};
+
+\addplot [color=mycolor4,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.95505338919004\\
+14	3.50247619519135\\
+15	6.04724212971288\\
+16	10.311974112495\\
+};
+\addlegendentry{$N_Q = N_C = 2^{24}$};
+
+\addplot [color=mycolor5,solid,line width=1.3pt]
+  table[row sep=crcr]{%
+12	1\\
+13	1.60530860928349\\
+14	2.9859903227703\\
+15	5.44306901585345\\
+16	10.9067572886725\\
+};
+\addlegendentry{$N_Q = N_C = 2^{25}$};
+
+\end{axis}
+\end{tikzpicture}%
