@@ -1,0 +1,254 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,titlepage]{article}
+
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%\usepackage{fouriernc}
+%\usepackage{pxfonts}
+\usepackage[charter]{mathdesign}
+\usepackage[no-math]{fontspec}
+%\usepackage{polyglossia}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{graphicx}
+\usepackage{xltxtra}
+\usepackage{makeidx}
+\usepackage{enumerate}
+\usepackage{caption}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage[hidelinks]{hyperref}
+\usepackage{grffile}
+\usepackage{adjustbox}
+\usepackage{dirtree}
+\usepackage{xfrac}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{plotmarks}
+
+
+\setmainfont[
+UprightFont = *,
+ItalicFont = *Italics,
+SlantedFont = *Italics,
+BoldFont = *sb,               
+BoldItalicFont = *sbi,
+BoldSlantedFont = *sbi,       
+SmallCapsFont = *SmallCaps
+]{Kerkis}
+
+\newfontfamily{\greekfont}[
+UprightFont = *,
+ItalicFont = *Italics,
+SlantedFont = *Italics,
+BoldFont = *sb,               
+BoldItalicFont = *sbi,
+BoldSlantedFont = *sbi,       
+SmallCapsFont = *SmallCaps
+]{Kerkis}
+
+
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.15in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{} % Top left header
+\chead{\hmwkClass\ - \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Σελίδα\ \thepage\ από\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{1}
+
+\DTsetlength{0.3em}{1.2em}{0.2em}{0.4pt}{0pt}
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+
+%----------------------------------------------------------------------------------------
+%	LOCALIZATION
+%----------------------------------------------------------------------------------------
+
+\renewcommand\figurename{Σχήμα}
+\renewcommand\contentsname{Περιεχόμενα}
+\renewcommand\indexname{Ευρετήριο}
+\renewcommand\tablename{Πίνακας}
+\renewcommand\appendixname{Παράρτημα}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Εργασία 3} % Assignment title
+\newcommand{\hmwkClass}{Παράλληλα \& Διανεμημένα Συστήματα} % Course/class
+\newcommand{\hmwkAuthorName}{Δημανίδης Ιωάννης} % Your name
+\newcommand{\hmwkAuthorAEM}{8358} % Your ΑΕΜ
+
+%----------------------------------------------------------------------------------------
+%	MISC OPTIONS
+%----------------------------------------------------------------------------------------
+
+\graphicspath{{./figures/}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+	\vspace{5cm}
+	\huge{\textbf{\hmwkClass}}\\
+	\vspace{9pt}
+	\LARGE{\hmwkTitle}\\
+	\vspace{7cm}
+}
+
+\author{\textbf{\hmwkAuthorName\ - \hmwkAuthorAEM}
+		\vspace{0.5em}\\
+		\textbf{Ιακωβίδης Γρηγόριος\ - 7686}
+		\vspace{0.5em}\\
+		\textbf{Αμουτζιάς Αθανάσιος\ - 7619}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+	
+	\maketitle
+	
+	%----------------------------------------------------------------------------------------
+	%	TABLE OF CONTENTS
+	%----------------------------------------------------------------------------------------
+	
+	%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+	
+	%\newpage
+%	\tableofcontents
+%	\clearpage
+	%\newpage
+	
+	
+	%----------------------------------------------------------------------------------------
+	%	Document
+	%----------------------------------------------------------------------------------------
+	\section{Γενικά}
+	Καλούμαστε να υλοποιήσουμε κατανεμημένο αλγόριθμο σε CUDA που να επιλύει το πρόβλημα \textit{All Pair Shortest Path (APSP)} με τη χρήση του αλγορίθμου \textit{Warshall-Floyd}. Ουσιαστικά έχουμε ένα κατευθυνόμενο γράφο $G(V, E)$ με $V, E$ τα σύνολα των κόμβων και των ακμών αντίστοιχα, και θέλουμε να βρούμε την ελάχιστη απόσταση μεταξύ δύο κόμβων $v_i, v_j,\ \forall i,j \in V$. Ορίζουμε λοιπόν το ακόλουθο project structure:\\
+	
+	\begin{wrapfigure}{r}{0.4\textwidth}
+		\begin{minipage}[t]{0.4\textwidth}
+			\dirtree{%
+				.1 trunk/.
+				.2 bin/.
+				.3 apsp.
+				.2 build/.
+				.3 apsp.o.
+				.2 include/.
+				.3 apsp.h.
+				.2 src/.
+				.3 apsp.cu.
+				.2 bench.rb.
+			    .2 makefile.
+			    .2 plotmake.m.
+				.2 results.csv.
+			}
+		\end{minipage}
+		\caption{Project Structure}			
+	\end{wrapfigure}
+	 
+	Στον φάκελο \verb|bin/| έχουμε το εκτελέσιμο αρχείο \verb|apsp| το οποίο δέχεται 3 ορίσματα: $v, p, w$ και αφού δημιουργήσει τον τετραγωνικό πίνακα γειτνίασης $W$ $2^{2v}$ στοιχείων του γράφου $G$ \footnote{Η δημιουργία του πίνακα γειτνίασης ενσωματώθηκε μέσα στο πρόγραμμα μας για μεγαλύτερη ευκολία εκτέλεσης των πειραμάτων} και μετά εκτελεί τον αλγόριθμο \textit{Warshall-Floyd} στο γράφο αυτό για να βρει το επιθυμητό αποτέλεσμα. Ο αλγόριθμος εκτελείται σειριακά και παράλληλα με τη χρήση CUDA με διαφορετικές παράλληλες τοπολογίες και τα αποτελέσματα συγκρίνονται στο τέλος. Στον κατάλογο  \verb|build/| βρίσκονται τα compiled object files από το κάθε αρχέιο, τα οποία γίνονται αργότερα link μεταξύ τους και των βιβλιοθηκών του συστήματος για να παράξουν το εκτελέσιμο \verb|apsp|. Στο φάκελο \verb|include/| βρίσκονται τα header files για το κάθε αρχέιο κώδικα,  τα οποία αρχεία βρίσκονται στο directory \verb|src/|.\\
+	
+	Επιπλέον υπάρχουν τα αρχεία \verb|bench.rb|, \verb|makefile|, \verb|plotmake.m|, \verb|results.csv|, από τα οποία το πρώτο αποτελεί ένα Ruby script το οποίο εκτελεί το πρόγραμμα \verb|apsp| για όλους τους πιθανούς συνδυασμούς των $n, p$ και καταγράφει τα αποτελέσματα στο CSV αρχείο \verb|results.csv|. To \verb|plotmake.m| είναι ένα MATLAB script το οποίο δημιουργεί τα διαγράμματα που υπάρχουν παρακάτω με τα δεδομένα του \verb|results.csv|. Το αρχείο \verb|makefile| περιέχει οδηγίες για την εντολή \verb|make|, ώστε να γίνεται compile και link εύκολα όλο το πρόγραμμα, καθώς αποτελείται από πολλά αρχεία κατανεμημένα σε διάφορους φακέλους.\\
+	
+	Τέλος, να σημειωθεί ότι χρησιμοποιήθηκε η έκδοση 4.8.1 του \verb|gcc| με optimization level \verb|-O3| και η έκδοση 5.5.0 των \verb|CUDA Compilation Tools| με αρχιτεκτονική \verb|sm_13|. 
+	
+\section{Υλοποίηση σε CUDA}
+	Έχουμε τον πίνακα γειτνίασης $W$ διαστάσεων $n\times n$. Ορίζουμε πως το κάθε block θα περιέχει 256 νήματα, οπότε  καθορίζουμε το μέγεθος του grid ανάλογα με το μέγεθος του προβλήματος. Υλοποιούμε 4 μεθόδους παραλληλοποίησης του ίδιου προβλήματος με διαφορετικές τοπο-λογίες νημάτων και διαφορετικά thread grains. 
+	
+\subsection{Μέθοδος 1: Ένα κελί ανά νήμα, χωρίς χρήση shared memory}
+	To κάθε block έχει 256 νήματα σε τοπολογία $16 \times 16$. Συνεπώς, ορίζουμε τετράγωνο grid διαστάσεων $\tfrac{n}{16}\times\tfrac{n}{16}$ και εκτελούμε $n$ φορές την kernel συνάρτηση σε $n^2$ νήματα ταυτόχρονα. To κάθε νήμα ουσιαστικά αφού προσδιοριστεί στο χώρο και βρει πιο κελί του αντιστοιχεί και εκτελεί το ακόλουθο
+	$$
+		W'(i, j) = \min\left\{W(i, j),\ W(i,k) + W(k,j)\right\},\quad k \in [0, n)
+	$$
+	σε κάθε μία από τις $n$ επαναλήψεις του kernel (το $k$ ουσιαστικά αποτελεί τον iterator). Έτσι σχηματίζεται ο πίνακας των ελάχιστων αποστάσεων.
+\subsection{Μέθοδος 2: Ένα κελί ανά νήμα, με χρήση shared memory}
+	To kernel function παραμένει ως έχει με τη μόνη διαφορά ότι πλέον έχουμε διαφορετική τοπολογία, συνεπώς ο προσδιορισμός του κάθε νήματος στο χώρο είναι ελαφρώς διαφορετικός. Πιο συγκεκριμένα, έχουμε πάλι 256 νήματα ανά block, αλλά αυτή τη φορά είναι σε μία διάσταση, έχοντας έτσι 256 νήματα σε σειρά. Οι διαστάσεις του grid προκύπτουν $\tfrac{n}{256}\times n$,   ώστε να εκμεταλλευτούμε το shared memory \footnote{Ορίζουμε τις διαστάσεις του πλέγματος έτσι ώστε να μην ξεπεράσουμε ποτέ το $2^{16}$, το οποίο είναι ο μέγιστος αριθμός block ενός grid ανά διάσταση}. Έτσι ουσιαστικά αναθέτουμε κάθε γραμμή του πίνακα σε ένα thread block, και η κοινή μνήμη του κάθε block θα έχει τα ίδια στοιχεία για το κάθε νήμα. Να σημειωθεί ότι, λόγω του γεγονότος ότι έχουμε ορίσει κάθε block να περιέχει 256 νήματα, για $n = 2^7$, ο αριθμός των στηλών του grid θα προκύψει 0, πράγμα δεν υφίσταται, οπότε σε αυτή μόνο την περίπτωση το θέτουμε 1 και έτσι το πλέγμα είναι διαστάσεων $1\times 128$, πράγμα το οποίο θα κάνει τα μισά thread που θα κληθούν να τερματίσουν αμέσως, καθώς θα αναφέρονται σε στοιχεία εκτός του πίνακα.
+\subsection{Μέθοδος 3: Δύο κελιά ανά νήμα, με χρήση shared memory}
+	Η λογική της υλοποίησης παραμένει ακριβώς ίδια με πριν, μόνο που πλέον το κάθε thread έχει grain 2 στοιχείων, πράγμα που σημαίνει πως το grid μας θα έχει διαστάσεις $\tfrac{n}{256}\times\tfrac{n}{2}$. Πλέον το κάθε νήμα θα δουλεύει πάνω στο στοιχείο $(i, j)$ αλλά και στο $(i + \tfrac{n}{2}, j)$ του πίνακα $W$. Επίσης, όπως και προηγουμένως, μόνο για την ειδική περίπτωση όπου $n = 2^7$, ορίζουμε των αριθμό των στηλών του πλέγματος 1 αντί για 0 που θα ήτανε κανονικά, και έτσι το grid είναι διαστάσεων $1\times 64$, κάνοντας έτσι τα μισά threads να τερματίζουν αμέσως καθώς αναφέρονται σε στοιχεία εκτός πίνακα.
+\subsection{Μέθοδος 4: Τέσσερα κελιά ανά νήμα, με χρήση shared memory}
+	Ακολουθώντας την ίδια λογική, έχουμε το κάθε thread να έχει grain 4 στοιχείων, πράγμα που σημαίνει πως το grid μας θα έχει διαστάσεις $\tfrac{n}{256}\times\tfrac{n}{4}$. Πλέον το κάθε νήμα θα δουλεύει στα στοιχεία $\left(i, j\right)$, $\left(i + \tfrac{n}{4}, j\right)$, $\left(i + \tfrac{2n}{4}, j\right)$ και $\left(i + \tfrac{3n}{4}, j\right)$. Επίσης, όπως και προηγουμένως, μόνο για την ειδική περίπτωση όπου $n = 2^7$, ορίζουμε των αριθμό των στηλών του πλέγματος 1 αντί για 0 που θα ήτανε κανονικά, και έτσι το grid είναι διαστάσεων $1\times 32$, κάνοντας έτσι τα μισά threads να τερματίζουν αμέσως καθώς αναφέρονται σε στοιχεία εκτός πίνακα.
+\section{Μετρήσεις}
+	Όλες οι μετρήσεις έγιναν στον server \url{diades.ee.auth.gr}, ο οποίος διαθέτει 2 κάρτες γραφικών, μία \textit{GeForce GTX 480} και μια \textit{Quadro NVS 290}. Η τιμή του ορίσματος $w$ είναι πάντα 1, αλλά αυτό δεν έχει απολύτως καμία σημασία όσον αφορά το υπολογιστικό κόστος του προβλήματος.\\
+	
+	Στα σχήματα \ref{fig:p1}, \ref{fig:p2}, \ref{fig:p3} παρουσιάζονται οι πορείες του αλγορίθμου συναρτήσει του $n$, για $p = 0.33,\ 0.45,\ 0.67$. Όπως είναι προφανές, η πιθανότητα $p$ δεν παίζει απολύτως κανένα ρόλο στην αποδοτικότητα του αλγορίθμου, πράγμα που σημαίνει πως η πολυπλοκότητα του δεν επηρεάζεται από τη φύση των δεδομένων και κάθε φορά χρειάζεται ακριβώς τον ίδιο αριθμό βημάτων.\\
+	
+	Όπως ήταν σαφώς αναμενόμενο, οι μέθοδοι που κάνουν χρήση της shared memory  είναι εμφανώς ταχύτεροι από τη μέθοδο που χρησιμοποιούσε μόνο global memory, καθώς τα latencies και οι χρόνοι προσπέλασης είναι αρκετά μικρότεροι. Επίσης, το μέγεθος του thread grain έχει άμεση σχέση με την αποδοτικότητα, καθώς όταν το κάθε νήμα ασχολείται με πάνω από ένα στοιχείο εξαλείφονται χρόνοι initialization και χρόνοι προσπέλασης που θα υπήρχαν σε άλλες περιπτώσεις. Να σημειωθεί ότι για μεθόδους με thread grain 8 δεν παρουσιάστηκαν εμφανείς διαφορές σε σχέση με την περίπτωση του thread grain 4, οπότε και για αυτό το λόγο δε συμπεριλήφθηκαν στην αναφορά. Επιπλέον, για επαρκώς μεγάλο grain coarseness, το efficiency του αλγορίθμου αρχίζει να μειώνεται σε σχέση με μικρότερα grains, καθώς το overhead που γλιτώνουμε είναι εντέλει μικρότερο από τον επιπλέον χρόνο περάτωσης ενός νήματος.\\
+	
+	Ακόμη, παρατηρούμε ότι όσο αυξάνει το μέγεθος του προβλήματος, τόσο αυξάνει και η αποδοτικότητα του αλγορίθμου, πράγμα αναμενόμενο καθώς για μεγαλύτερο $n$ το ποσοστό του χρόνου που αφιερώνεται σε χρόνους αρχικοποίησης νημάτων και μεταφοράς δεδομένων από μνήμη σε μνήμη είναι όλο και μικρότερο σε σχέση με τον συνολικό χρόνο περάτωσης του αλγορίθμου. Για $n > 2^{11}$ παρατηρεί κανείς ότι η αποδοτικότητα του αλγορίθμου καταλήγει σε ένα πλατό και υφίσταται κορεσμό.
+	
+
+	\setlength\figureheight{5.32cm}
+	\setlength\figurewidth{14.7cm}	
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics{figure-1.tikz}
+		\caption{Ποσοστιαία επιτάχυνση του αλγορίθμου συναρτήσει του $n$ ($p = 0.33$)}
+		\label{fig:p1}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics{figure-2.tikz}
+		\caption{Ποσοστιαία επιτάχυνση του αλγορίθμου συναρτήσει του $n$ ($p = 0.45$)}
+		\label{fig:p2}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics{figure-3.tikz}
+		\caption{Ποσοστιαία επιτάχυνση του αλγορίθμου συναρτήσει του $n$ ($p = 0.67$)}
+		\label{fig:p3}
+	\end{figure}
+
+\end{document}

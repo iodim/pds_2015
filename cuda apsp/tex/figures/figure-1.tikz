@@ -1,0 +1,75 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.944\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=7,
+xmax=12,
+xtick={7,8,9,10,11,12},
+xticklabels={{ $2^{7}$},{ $2^{8}$},{ $2^{9}$},{$2^{10}$},{$2^{11}$},{$2^{12}$}},
+xlabel={$n$},
+xmajorgrids,
+ymin=0,
+ymax=45,
+ytick={0,5,10,15,20,25,30,35,40,45},
+yticklabels={{ 000\%},{ 500\%},{1000\%},{1500\%},{2000\%},{2500\%},{3000\%},{3500\%},{4000\%},{4500\%}},
+ylabel={Percent Speedup},
+ymajorgrids,
+axis background/.style={fill=white},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=white!15!black}
+]
+\addplot [color=mycolor1,solid,line width=1.1pt]
+  table[row sep=crcr]{%
+7	2.85102301790281\\
+8	7.24562222741069\\
+9	12.7659795600208\\
+10	16.6195683276785\\
+11	23.8161146433012\\
+12	22.9414331382849\\
+};
+\addlegendentry{1 c/t, w/o SM};
+
+\addplot [color=mycolor2,solid,line width=1.1pt]
+  table[row sep=crcr]{%
+7	2.82036685641999\\
+8	7.93682864450128\\
+9	13.6410414610069\\
+10	18.4804145501653\\
+11	26.1480943562539\\
+12	25.3688379033315\\
+};
+\addlegendentry{1 c/t, w/ SM};
+
+\addplot [color=mycolor3,solid,line width=1.1pt]
+  table[row sep=crcr]{%
+7	3.00471698113208\\
+8	8.15370467682606\\
+9	15.8331423660842\\
+10	23.6422818596808\\
+11	35.4371349099015\\
+12	35.4890281787164\\
+};
+\addlegendentry{2 c/t, w/ SM};
+
+\addplot [color=mycolor4,solid,line width=1.1pt]
+  table[row sep=crcr]{%
+7	2.92010478061559\\
+8	9.05016039661709\\
+9	17.0413133960228\\
+10	26.906982131039\\
+11	42.9025783099279\\
+12	44.288685555653\\
+};
+\addlegendentry{4 c/t, w/ SM};
+
+\end{axis}
+\end{tikzpicture}%
